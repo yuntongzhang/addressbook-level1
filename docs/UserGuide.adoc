@@ -62,6 +62,11 @@ Shows a list of persons, as an indexed list, in the order they were added to the
 oldest first. +
 Format: `list`
 
+=== Show the total number of persons: `count`
+
+Shows the total number of persons saved in the address book. +
+Format: `count`
+
 === Finding a person by keyword `find`
 
 Finds persons that match given keywords. +
