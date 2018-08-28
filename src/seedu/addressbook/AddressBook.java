@@ -63,6 +63,7 @@ public class AddressBook {
     private static final String MESSAGE_COMMAND_HELP = "%1$s: %2$s";
     private static final String MESSAGE_COMMAND_HELP_PARAMETERS = "\tParameters: %1$s";
     private static final String MESSAGE_COMMAND_HELP_EXAMPLE = "\tExample: %1$s";
+    private static final String MESSAGE_COUNT_PERSONS = "You have %1$d contacts in your address book!";
     private static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
     private static final String MESSAGE_DISPLAY_PERSON_DATA = "%1$s  Phone Number: %2$s  Email: %3$s";
     private static final String MESSAGE_DISPLAY_LIST_ELEMENT_INDEX = "%1$d. ";
@@ -107,6 +108,10 @@ public class AddressBook {
     private static final String COMMAND_LIST_WORD = "list";
     private static final String COMMAND_LIST_DESC = "Displays all persons as a list with index numbers.";
     private static final String COMMAND_LIST_EXAMPLE = COMMAND_LIST_WORD;
+
+    private static final String COMMAND_COUNT_WORD = "count";
+    private static final String COMMAND_COUNT_DESC = "Display the total number of persons in the address book.";
+    private static final String COMMAND_COUNT_EXAMPLE = COMMAND_COUNT_WORD;
 
     private static final String COMMAND_DELETE_WORD = "delete";
     private static final String COMMAND_DELETE_DESC = "Deletes a person identified by the index number used in "
@@ -373,6 +378,8 @@ public class AddressBook {
             return executeFindPersons(commandArgs);
         case COMMAND_LIST_WORD:
             return executeListAllPersonsInAddressBook();
+        case COMMAND_COUNT_WORD:
+            return executeCountPersons();
         case COMMAND_DELETE_WORD:
             return executeDeletePerson(commandArgs);
         case COMMAND_CLEAR_WORD:
@@ -575,6 +582,27 @@ public class AddressBook {
         ArrayList<HashMap<String,String>> toBeDisplayed = getAllPersonsInAddressBook();
         showToUser(toBeDisplayed);
         return getMessageForPersonsDisplayedSummary(toBeDisplayed);
+    }
+
+    /**
+     * Display the total number of persons in the address book.
+     *
+     * @return feedback display message for the operation result
+     */
+    private static String executeCountPersons() {
+        int totalCount = getAllPersonsInAddressBook().size();
+        return getMessageForCountPersons(totalCount);
+    }
+
+    /**
+     * Constructs a feedback message for a count command execution.
+     *
+     * @see #executeCountPersons()
+     * @param count the count of persons
+     * @return count persons feedback message
+     */
+    private static String getMessageForCountPersons(int count) {
+        return String.format(MESSAGE_COUNT_PERSONS, count);
     }
 
     /**
