@@ -62,6 +62,9 @@
 || list: Displays all persons as a list with index numbers.
 || 	Example: list
 || 
+|| count: Displays the total number of persons in the address book.
+|| 	Example: count
+|| 
 || delete: Deletes a person identified by the index number used in the last find/list call.
 || 	Parameters: INDEX
 || 	Example: delete 1
@@ -267,6 +270,9 @@
 || 	2. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
 || 
 || 2 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  count]
+|| The total number of contacts in your address book is 2!
 || ===================================================
 || Enter command: || [Command entered:  clear]
 || Address book has been cleared!
