@@ -130,7 +130,7 @@ public class AddressBook {
 
     /**
      * We use HashMap to store details of a single person
-     * TODO: delete irrelavant code related to the string implementation of the person details
+     * TODO: delete irrelevant code related to the string implementation of the person details
      */
     private static final String PERSON_PROPERTY_NAME = "name";
     private static final String PERSON_PROPERTY_PHONE = "phone";
